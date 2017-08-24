@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="QueueAide:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/QueueAide_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="QueueAide/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="QueueAide" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$USER_HOME$/Downloads/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/commons-dbutils-1.6/commons-dbutils-1.6.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/c3p0-0.9.5.2/lib/c3p0-0.9.5.2.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/c3p0-0.9.5.2/lib/mchange-commons-java-0.2.11.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/fastjson-1.2.35.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

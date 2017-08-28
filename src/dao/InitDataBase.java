@@ -9,22 +9,31 @@ import java.sql.SQLException;
 public class InitDataBase extends BaseDao{
 
     //创建各张表的sql语句
-    static final String CREATE_WINDOW_TABLE = "CREATE TABLE window_info" +
+    static final String CREATE_RESTAURANT_TABLE = "CREATE TABLE restaurant" +
             "(id INTEGER NOT NULL, "+
             "name CHAR(255), "+
             "PRIMARY KEY (id))";
 
-    static final String CREATE_QUEUE_TABLE = "CREATE TABLE queue_info" +
-            "(id INTEGER NOT NULL AUTO_INCREMENT, "+
-            "window_name CHAR(255), "+
+    static final String CREATE_PRODUCT_TABLE = "CREATE TABLE product" +
+            "(id INTEGER NOT NULL, "+
+            "(restaurant_id INTEGER NOT NULL,"+
             "name CHAR(255), "+
+            "price CHAR(255),"+
+            "PRIMARY KEY (id))";
+
+    static final String CREATE_QUEUE_TABLE = "CREATE TABLE queue" +
+            "(id INTEGER NOT NULL AUTO_INCREMENT, "+
+            "restaurant_name CHAR(255), "+
+            "user_name CHAR(255), "+
+            "product_name CHAR(255), "+
             "time CHAR(255), "+
-            "food CHAR(255), "+
             "PRIMARY KEY (id));";
+
 
     public void initData(){
        createDatabases();
-       executeSql(CREATE_WINDOW_TABLE);
+       executeSql(CREATE_RESTAURANT_TABLE);
+       executeSql(CREATE_PRODUCT_TABLE);
        executeSql(CREATE_QUEUE_TABLE);
 
     }
@@ -36,7 +45,7 @@ public class InitDataBase extends BaseDao{
             Class.forName(JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
             statement = connection.createStatement();
-            String sql = "CREATE DATABASE QUEUEAIDE";
+            String sql = "CREATE DATABASE SMARTAIDE";
             statement.executeUpdate(sql);
             System.out.println("Database created successfully...");
 

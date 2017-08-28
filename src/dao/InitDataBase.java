@@ -16,9 +16,9 @@ public class InitDataBase extends BaseDao{
 
     static final String CREATE_PRODUCT_TABLE = "CREATE TABLE product" +
             "(id INTEGER NOT NULL, "+
-            "(restaurant_id INTEGER NOT NULL,"+
+            "restaurant_id INTEGER NOT NULL, "+
             "name CHAR(255), "+
-            "price CHAR(255),"+
+            "price DECIMAL, "+
             "PRIMARY KEY (id))";
 
     static final String CREATE_QUEUE_TABLE = "CREATE TABLE queue" +

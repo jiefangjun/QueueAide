@@ -1,7 +1,5 @@
 package dao;
-
-import com.alibaba.fastjson.JSON;
-import model.Group;
+import com.google.gson.Gson;
 import model.User;
 import org.apache.commons.dbutils.QueryRunner;
 import utils.JDBCUtils;
@@ -21,22 +19,24 @@ public class QueryUser {
     }
 
     QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSources());
-    String sql = "select * from queue_info";
+    String sql = "select * from user";
 
     public String queryUsers() {
         String jsonString = null;
         try {
             List<User> list = queryRunner.query(sql, new MyHandler());
 
-            Group group = new Group();
+            /*Group group = new Group();
             group.setId(0L);
-            group.setName("admin");
+            group.setName("admin");*/
 
-            for (int i = 0; i < list.size(); i++) {
-                group.addUser(list.get(i));
-            }
+            Gson gson = new Gson();
+            jsonString = gson.toJson(list);
+            /*for (int i = 0; i < list.size(); i++) {
+                jsonString = gson.toJson(list.get(i));
+            }*/
 
-            jsonString = JSON.toJSONString(group);
+            //jsonString = JSON.toJSONString(group);
             System.out.print(jsonString);
 
         } catch (SQLException se) {
@@ -44,5 +44,6 @@ public class QueryUser {
         }
         return jsonString;
     }
+
 
 }

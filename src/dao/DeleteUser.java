@@ -18,7 +18,7 @@ public class DeleteUser {
     }
 
     QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSources());
-    String sql = "delete from queue_info where id = ?";
+    String sql = "delete from user where id = ?";
 
     public int deleteUserById(String sd){
 

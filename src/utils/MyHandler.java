@@ -18,7 +18,7 @@ public class MyHandler implements ResultSetHandler<List<User>> {
 
         List<User> users = new ArrayList<User>();
         while (resultSet.next()){
-            User user = new User(resultSet.getInt("id"), resultSet.getString("window_name"), resultSet.getString("name"), resultSet.getString("time"), resultSet.getString("food"));
+            User user = new User(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("password"), resultSet.getString("avatar"), resultSet.getString("is_merchant"));
             users.add(user);
         }
         return users;

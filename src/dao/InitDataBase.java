@@ -9,6 +9,14 @@ import java.sql.SQLException;
 public class InitDataBase extends BaseDao{
 
     //创建各张表的sql语句
+    static final String CREATE_USER_TABLE = "CREATE TABLE user" +
+            "(id INTEGER NOT NULL AUTO_INCREMENT, "+
+            "name CHAR(255), "+
+            "password CHAR(255), "+
+            "avatar CHAR(255), "+
+            "is_merchant TINYINT(1), "+
+            "PRIMARY KEY (id))";
+
     static final String CREATE_RESTAURANT_TABLE = "CREATE TABLE restaurant" +
             "(id INTEGER NOT NULL, "+
             "name CHAR(255), "+
@@ -32,6 +40,7 @@ public class InitDataBase extends BaseDao{
 
     public void initData(){
        createDatabases();
+       executeSql(CREATE_USER_TABLE);
        executeSql(CREATE_RESTAURANT_TABLE);
        executeSql(CREATE_PRODUCT_TABLE);
        executeSql(CREATE_QUEUE_TABLE);

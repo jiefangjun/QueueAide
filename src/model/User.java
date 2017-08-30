@@ -7,48 +7,16 @@ public class User {
 
     private int id;
     private String name;
-    private String time;
-    private String windowName;
-    private String foodName;
+    private String password;
+    private String avatar;
+    private String is_merchant;
 
-    public User(int id, String windowName, String name, String time, String foodName) {
+    public User(int id, String name, String password, String avatar, String is_merchant) {
         this.id = id;
-        this.windowName = windowName;
         this.name = name;
-        this.time = time;
-        this.foodName = foodName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getFoodName() {
-        return foodName;
-    }
-
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getWindowName() {
-        return windowName;
-    }
-
-    public void setWindowName(String windowName) {
-        this.windowName = windowName;
+        this.password = password;
+        this.avatar = avatar;
+        this.is_merchant = is_merchant;
     }
 
     public int getId() {
@@ -57,5 +25,37 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getIs_merchant() {
+        return is_merchant;
+    }
+
+    public void setIs_merchant(String is_merchant) {
+        this.is_merchant = is_merchant;
     }
 }

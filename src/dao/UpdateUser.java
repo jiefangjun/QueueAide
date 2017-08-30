@@ -17,13 +17,13 @@ public class UpdateUser {
 
     QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSources());
     //String sql = "update user set name = ? where id = ?";
-    String sql = "update queue_info set window_name = ? , food = ? , name = ? where id = ?";
+    String sql = "update user set name = ? , password = ? , avatar = ? where id = ?";
 
-    public int updateUserById(String id){
+    public int updateUserById(String id, String name, String password, String avatar){
 
         int updateId = Integer.valueOf(id);
         try {
-            int update = queryRunner.update(sql, "ccc", "fff", "name", id);
+            int update = queryRunner.update(sql, name, password, avatar, id);
         } catch (SQLException e) {
             e.printStackTrace();
         }

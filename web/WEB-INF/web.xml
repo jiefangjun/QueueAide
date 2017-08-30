@@ -11,12 +11,4 @@
         <servlet-name>InitDataServlet</servlet-name>
         <url-pattern>/InitDataServlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Users</servlet-name>
-        <servlet-class>servlet.Users</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Users</servlet-name>
-        <url-pattern>/Users</url-pattern>
-    </servlet-mapping>
 </web-app>

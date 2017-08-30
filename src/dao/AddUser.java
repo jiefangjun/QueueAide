@@ -17,17 +17,15 @@ public class AddUser {
     }
 
     QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSources());
-    String sql = "insert into queue_info values (null, ?, ?, ?, ?)";
+    String sql = "insert into user values (null, ?, ?, ?, ?)";
 
-    public int addUser(String windowName, String userName, String foodName){
+    public int addUser(String name, String password, String avatar, String is_merchant){
 
         int a = 0;
 
         try{
             //int a = queryRunner.update(sql, "window", "name", "13:07", "food");
-            Date date = new Date();
-            String time = date.toString();
-            a = queryRunner.update(sql, windowName, userName, time, foodName);
+            a = queryRunner.update(sql, name, password, avatar, Integer.valueOf(is_merchant));
 
         }catch (SQLException se){
             se.printStackTrace();

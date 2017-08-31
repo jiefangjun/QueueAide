@@ -25,20 +25,8 @@ public class QueryUser {
         String jsonString = null;
         try {
             List<User> list = queryRunner.query(sql, new MyHandler());
-
-            /*Group group = new Group();
-            group.setId(0L);
-            group.setName("admin");*/
-
             Gson gson = new Gson();
             jsonString = gson.toJson(list);
-            /*for (int i = 0; i < list.size(); i++) {
-                jsonString = gson.toJson(list.get(i));
-            }*/
-
-            //jsonString = JSON.toJSONString(group);
-            System.out.print(jsonString);
-
         } catch (SQLException se) {
             se.printStackTrace();
         }

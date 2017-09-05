@@ -1,5 +1,6 @@
 package utils;
 
+import model.Unit;
 import model.User;
 import org.apache.commons.dbutils.ResultSetHandler;
 
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * Created by archie on 7/14/17.
  */
-public class MyHandler implements ResultSetHandler<List<User>> {
+public class UserHandler implements ResultSetHandler<List<User>> {
 
     @Override
     public List<User> handle(ResultSet resultSet) throws SQLException {

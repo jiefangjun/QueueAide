@@ -1,10 +1,6 @@
 package servlet;
 
-import dao.AddUser;
-import dao.DeleteUser;
-import dao.QueryUser;
-import dao.UpdateUser;
-
+import dao.UserDao;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +14,11 @@ public class Users extends HttpServlet {
 
     @Override
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException{
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter printWriter = response.getWriter();
 
-        int add = AddUser.getInstance().addUser(request.getParameter("name"), request.getParameter("password"), request.getParameter("avatar"), request.getParameter("is_merchant"));
+        int add = UserDao.getInstance().addUser(request.getParameter("name"), request.getParameter("password"), request.getParameter("avatar"), request.getParameter("is_merchant"));
         printWriter.println("add " + add + " user success");
     }
 
@@ -29,7 +26,7 @@ public class Users extends HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String users = QueryUser.getInstance().queryUsers();
+        String users = UserDao.getInstance().queryUsers();
         out.println(users);
     }
 
@@ -37,7 +34,7 @@ public class Users extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json;charset=UTF-8");
         PrintWriter printWriter = resp.getWriter();
-        int put = UpdateUser.getInstance().updateUserById(req.getParameter("id"), req.getParameter("name"), req.getParameter("password"), req.getParameter("avatar"));
+        int put = UserDao.getInstance().updateUser(req.getParameter("id"), req.getParameter("name"), req.getParameter("password"), req.getParameter("avatar"));
         printWriter.println("update " + put +" success");
 
     }
@@ -46,7 +43,7 @@ public class Users extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json;charset=UTF-8");
         PrintWriter printWriter = resp.getWriter();
-        int delete = DeleteUser.getInstance().deleteUserById(req.getParameter("id"));
+        int delete = UserDao.getInstance().deleteUser(req.getParameter("id"));
         printWriter.println(delete);
 
     }
